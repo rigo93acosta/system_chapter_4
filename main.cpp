@@ -4,6 +4,7 @@
 //##### Defines #####
 
 //##### Public objects #####
+DigitalInOut sirenPin(D8);
 
 //##### Public global variables #####
 
@@ -13,9 +14,14 @@
 
 //##### Main #####
 int main()
-{
+{   
+    sirenPin.mode(OpenDrain);
+    sirenPin.input();
     while (true) {
-
+        sirenPin.output();
+        sirenPin = LOW;
+        delay(2000);
+        sirenPin.input();
     }
 }
 
